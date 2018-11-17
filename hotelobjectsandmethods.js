@@ -1,22 +1,24 @@
-console.log("Welcome to the program.") // Code that is written within the main/global scope of a program is executed automatically
 var hotel = {
     name: "CareerDevs Hotel",
-
-    sousChef: function(param1, param2) {
-    // a method is a function within an object
-    // lines of javascript code
-    // more lines of code
-    console.log("welcome to the method")
+    rating: 5.0,
+    numberOfRooms: 5,
+    roomRate: 325.00,
+    roomNumbersAvailable: ["102", "103", "104", "105", "106"],
+    roomNumbersBooked: ["101"],
+    roomType: "Queen",
+    
+    numberOfRoomsAvailable: function() {
+        return this.roomNumbersAvailable.length;
+    },
+    
+    numberOfRoomsBooked: function() {
+        return this.roomNumbersBooked.length;
     }
-}
+    
+    numberOfRooms: function() {
+        return this.roomNumbersAvailable.length + this.roomNumbersBooked.length;
+    },
+    
+};
 
-console.log("welcome to the middle of the program.")
 
-function sousChef(param1, param2) {
-    // this is a function
-    // lines of javascript code
-    // more lines of code
-    console.log("welcome to the Function")
-}
-
-console.log("Welcome to the END of the program.");
