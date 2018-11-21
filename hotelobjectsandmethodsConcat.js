@@ -24,10 +24,7 @@ var hotel = {
         if (this.numberOfRoomsAvailable() > 0) {
             // select a random avaliable room
             var randomRoom = this.roomNumbersAvailable[Math.floor(Math.random() * this.roomNumbersAvailable.length)];
-            this.roomNumbersAvailable.splice(this.roomNumbersAvailable.indexOf(randomRoom), 1);
-            // this.roomNumbersBooked.push(randomRoom);
-            var bookedArray = this.roomNumbersBooked.push(randomRoom);
-            this.roomNumbersBooked.concat(bookedArray);
+            this.roomNumbersBooked = this.roomNumbersBooked.concat(this.roomNumbersAvailable.splice(this.roomNumbersAvailable.indexOf(randomRoom), 1));
         }
     }
 };

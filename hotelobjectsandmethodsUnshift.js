@@ -15,7 +15,7 @@ var hotel = {
     numberOfRoomsBooked: function() {
         return this.roomNumbersBooked.length;
     },
-    
+
     numberOfRooms: function() {
         return this.roomNumbersAvailable.length + this.roomNumbersBooked.length;
     },
@@ -24,9 +24,17 @@ var hotel = {
         if (this.numberOfRoomsAvailable() > 0) {
             // select a random avaliable room
             var randomRoom = this.roomNumbersAvailable[Math.floor(Math.random() * this.roomNumbersAvailable.length)];
-            this.roomNumbersAvailable.splice(this.roomNumbersAvailable.indexOf(randomRoom), 1);
-            // this.roomNumbersBooked.push(randomRoom);
-            this.roomNumbersBooked.unshift(randomRoom);
+            this.roomNumbersBooked.unshift(this.roomNumbersAvailable.splice(this.roomNumbersAvailable.indexOf(randomRoom), 1)[0]);
+            // this.roomNumbersBooked.unshift(randomRoom);
+        } else {
+        console.log("Sorry, we are fully booked.");
+        }
+    },
+    
+    checkoutRoom: function() {
+        if (this.roomNumbersBooked > 0) {
+            var randomRoomCheckout = this.roomNumbersBooked[Math.floor(Math.random() * this.roomNumbersBooked.length)];
+            this.roomNumbersAvailable.unshift(this.roomNumbersBooked.splice(this.roomNumbersBooked.indexOf(randomRoomCheckout), 1)[0]);
         }
     }
 };
