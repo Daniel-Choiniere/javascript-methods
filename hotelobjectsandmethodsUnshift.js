@@ -32,7 +32,7 @@ var hotel = {
     },
     
     checkoutRoom: function() {
-        if (this.roomNumbersBooked > 0) {
+        if (this.roomNumbersBooked.length > 0) {
             var randomRoomCheckout = this.roomNumbersBooked[Math.floor(Math.random() * this.roomNumbersBooked.length)];
             this.roomNumbersAvailable.unshift(this.roomNumbersBooked.splice(this.roomNumbersBooked.indexOf(randomRoomCheckout), 1)[0]);
         }
